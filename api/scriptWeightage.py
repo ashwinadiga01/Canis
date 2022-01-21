@@ -2,7 +2,7 @@ import json
 from os import path
 from tokenize import Double
 
-filename = 'niftySW.json'
+filename = 'SWnifty.json'
 listObj = []
 
 with open(filename) as fp:
