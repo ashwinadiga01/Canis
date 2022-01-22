@@ -1,6 +1,7 @@
 from smartapi import SmartWebSocket, SmartConnect
 import os
 from dotenv import load_dotenv
+from weightageMove import weightageMove
 from stockIndices import getData
 import stockIndices
 
@@ -26,7 +27,9 @@ ss = SmartWebSocket(FEED_TOKEN, CLIENT_CODE)
 def on_message(ws, message):
     # stockIndObj = stockIndices.stockIndices()
     # stockIndObj.abc(message)
-    getData(example)
+    # getData(message)
+    # weightageMove()
+    print(message)
     
 def on_open(ws):
     print("on open")

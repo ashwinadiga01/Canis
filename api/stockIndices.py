@@ -91,7 +91,7 @@ def getData(shareData):
                 print(i)
                 stockIndices.otherStocks(i)
 
-# getData([{'c': '233' ,'cng': '-146','e': 'nse_cm', 'ltp': '1955.20', 'ltq': '2', 'ltt': 'NA', 'name': 'sf', 'tk': '11483'}, {'c': '233' ,'cng': '-146', 'e': 'nse_cm', 'ltp': '17610.15', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.827', 'tk': '26000'}, {'c': '37850.5', 'cng': '-313.65', 'e': 'nse_cm', 'ltp': '37537.20', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.8286', 'tk': '26009'}])
+# getData([{'c': '233' ,'cng': '-6','e': 'nse_cm', 'ltp': '1955.20', 'ltq': '2', 'ltt': 'NA', 'name': 'sf', 'tk': '11483'}, {'c': '23003' ,'cng': '-146', 'e': 'nse_cm', 'ltp': '17610.15', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.827', 'tk': '26000'}, {'c': '37850.5', 'cng': '-313.65', 'e': 'nse_cm', 'ltp': '37537.20', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.8286', 'tk': '26009'}])
 
 
 
