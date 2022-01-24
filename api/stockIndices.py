@@ -2,6 +2,8 @@ from operator import concat
 from traceback import print_tb
 from typing import ChainMap
 import json
+from weightageMove import updateList
+
 
 filename = 'stockData.json'
 listObj = []
@@ -14,16 +16,16 @@ class stockIndices:
         # nftAndBnkNftDict = dict(ChainMap(*nftAndBnkNftList))
 
         if(nftAndBnkNftDict.get('tk') == '26000'):
-            print("nifty: - ", nftAndBnkNftDict.get('c'))
-            checkUpdateOrAdd(int(nftAndBnkNftDict.get('tk')),float(nftAndBnkNftDict.get('c')),float(nftAndBnkNftDict.get('cng')))
+            # print("nifty: - ", nftAndBnkNftDict.get('ltp'))
+            checkUpdateOrAdd(int(nftAndBnkNftDict.get('tk')),float(nftAndBnkNftDict.get('ltp')),float(nftAndBnkNftDict.get('nc')))
 
         if(nftAndBnkNftDict.get('tk') == '26009'):
-            print("banknifty: -",nftAndBnkNftDict.get('c'))            
-            checkUpdateOrAdd(int(nftAndBnkNftDict.get('tk')),float(nftAndBnkNftDict.get('c')),float(nftAndBnkNftDict.get('cng')))
+            # print("banknifty: -",nftAndBnkNftDict.get('ltp'))            
+            checkUpdateOrAdd(int(nftAndBnkNftDict.get('tk')),float(nftAndBnkNftDict.get('ltp')),float(nftAndBnkNftDict.get('nc')))
 
     
     def otherStocks(otherStockDataDict):
-        checkUpdateOrAdd(int(otherStockDataDict.get('tk')),float(otherStockDataDict.get('c')),float(otherStockDataDict.get('cng')))
+        checkUpdateOrAdd(int(otherStockDataDict.get('tk')),float(otherStockDataDict.get('c')),float(otherStockDataDict.get('nc')))
 
 
 def updateJSON(tk,price,nc):
@@ -32,12 +34,18 @@ def updateJSON(tk,price,nc):
             if(i['TK'] == tk or i['TK'] == tk):
                 Price = {"PRICE" : price}
                 i.update(Price)
+                # print(i)
 
         else:
             if(i['TK'] == tk or i['TK'] == tk):
                 NetCng = {"NETCNG" : nc}
                 i.update(NetCng)
 
+
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file, indent=4, separators=(',',': '))
+
+    updateList()
 
 def addToJSON(tk,price,nc):
     if(tk == 26000 or tk == 26009):
@@ -51,6 +59,9 @@ def addToJSON(tk,price,nc):
         "TK": tk,
         "NETCNG" : nc
         })
+
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file, indent=4, separators=(',',': '))
 
 def checkUpdateOrAdd(tk,price,nc):
     count = 0
@@ -84,14 +95,14 @@ def getData(shareData):
     for i in shareData:
         if(i.get('tk') is not None and i.get('c') is not None and i.get('cng') is not None):
             if(i.get('tk') == '26000' or i.get('tk') == '26009'):
-                print(i)
+                # print(i)
                 stockIndices.niftyAndBankNifty(i)
 
             else:
-                print(i)
+                # print(i)
                 stockIndices.otherStocks(i)
 
-# getData([{'c': '233' ,'cng': '-6','e': 'nse_cm', 'ltp': '1955.20', 'ltq': '2', 'ltt': 'NA', 'name': 'sf', 'tk': '11483'}, {'c': '23003' ,'cng': '-146', 'e': 'nse_cm', 'ltp': '17610.15', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.827', 'tk': '26000'}, {'c': '37850.5', 'cng': '-313.65', 'e': 'nse_cm', 'ltp': '37537.20', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.8286', 'tk': '26009'}])
+# getData([{'c': '2300' ,'cng': '-146', 'e': 'nse_cm', 'ltp': '10100.15', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.827', 'tk': '26000'}, {'c': '37850.5', 'cng': '-313.65', 'e': 'nse_cm', 'ltp': '37537.20', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.8286', 'tk': '26009'}])
 
 
 
