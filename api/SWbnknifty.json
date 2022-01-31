@@ -1,58 +1,62 @@
 [
     {
-        "TK": 123,
-        "SW": 27
-    },
-    {
-        "TK": 1244,
-        "SW": 45
-    },
-    {
         "TK": 1333,
-        "SW": 27.8
+        "SW": 27.8,
+        "STOCKNAME": "HDFCBANK"
     },
     {
         "TK": 4963,
-        "SW": 22.62
+        "SW": 22.62,
+        "STOCKNAME": "ICICIBANK"
     },
     {
         "TK": 1922,
-        "SW": 11.61
+        "SW": 11.61,
+        "STOCKNAME": "KOTAKBANK"
     },
     {
         "TK": 5900,
-        "SW": 11.52
+        "SW": 11.52,
+        "STOCKNAME": "AXISBANK"
     },
     {
         "TK": 3045,
-        "SW": 11.45
+        "SW": 11.45,
+        "STOCKNAME": "SBIN"
     },
     {
         "TK": 5258,
-        "SW": 5.91
+        "SW": 5.91,
+        "STOCKNAME": "INDUSINDBK"
     },
     {
         "TK": 21238,
-        "SW": 2.33
+        "SW": 2.33,
+        "STOCKNAME": "AUBANK"
     },
     {
         "TK": 2263,
-        "SW": 1.75
+        "SW": 1.75,
+        "STOCKNAME": "BANDHANBNK"
     },
     {
         "TK": 1023,
-        "SW": 1.7
+        "SW": 1.7,
+        "STOCKNAME": "FEDERALBNK"
     },
     {
         "TK": 11184,
-        "SW": 1.54
+        "SW": 1.54,
+        "STOCKNAME": "IDFCFIRSTB"
     },
     {
         "TK": 10666,
-        "SW": 1.13
+        "SW": 1.13,
+        "STOCKNAME": "PNB"
     },
     {
         "TK": 18391,
-        "SW": 0.65
+        "SW": 0.65,
+        "STOCKNAME": "RBLBANK"
     }
 ]

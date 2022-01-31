@@ -1,5 +1,8 @@
 from ast import Index
 import json
+# from test2 import lista
+
+# from test2 import Ui_Form
 
 def nandbprice(wm,wmListObj,swnpListObj,swbnpListObj):
     for i in wmListObj:
@@ -29,6 +32,8 @@ def indexContribution(ic,icListObj,swnpListObj,swbnpListObj,niftyP,bankniftyP):
                     IC = {"ICB":indexContribution}
                     i.update(IC)
 
+    # print("aaaaaaaaaaa")
+    # lista()
 
     with open(ic, 'w') as json_file:
         json.dump(icListObj, json_file, indent=4, separators=(',',': '))

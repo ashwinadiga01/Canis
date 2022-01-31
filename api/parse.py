@@ -6,8 +6,26 @@ from urllib.request import urlopen
 shareDataURL = "https://margincalculator.angelbroking.com/OpenAPI_File/files/OpenAPIScripMaster.json"
 responseURL = urlopen(shareDataURL)
 
+sd = "SWnifty.json"
+sdList = []
+
 data = json.loads(responseURL.read())
-# print("idharse",data[100])
+
+with open(sd) as fp:
+  sdList = json.load(fp)
+
+def shareName(sdList):
+    for i in sdList:
+        if i.get('TK') is not None:
+            stockName = list(filter(lambda item: item['token'] == str(i.get('TK')),data))         
+            nameDict = dict(ChainMap(*stockName))
+            name = {"STOCKNAME" : nameDict.get('name')}
+            i.update(name)
+
+    with open(sd, 'w') as json_file:
+        json.dump(sdList, json_file, indent=4, separators=(',',': '))
+
+shareName(sdList)
 
 def shareData(shareName):
     shareSymbol = concat(shareName,'-EQ')
@@ -18,10 +36,5 @@ def shareData(shareName):
 
 shareName = input("Enter share name : ")
 shareData(shareName)
-
-# for i in data:
-#     if (len(i)<10):
-#         print("\n",data)
-#     break
 
 

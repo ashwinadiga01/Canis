@@ -1,5 +1,3 @@
-from operator import concat
-from traceback import print_tb
 from typing import ChainMap
 import json
 from weightageMove import updateList
@@ -102,7 +100,7 @@ def getData(shareData):
                 # print(i)
                 stockIndices.otherStocks(i)
 
-# getData([{'c': '2300' ,'cng': '-146', 'e': 'nse_cm', 'ltp': '10100.15', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.827', 'tk': '26000'}, {'c': '37850.5', 'cng': '-313.65', 'e': 'nse_cm', 'ltp': '37537.20', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.8286', 'tk': '26009'}])
+# getData([{'c': '2300' ,'cng': '-146', 'e': 'nse_cm', 'ltp': '10150.15', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.827', 'tk': '26000'}, {'c': '37850.5', 'cng': '-313.65', 'e': 'nse_cm', 'ltp': '37537.20', 'ltt': 'NA', 'name': 'sf', 'nc': '-00.8286', 'tk': '26009'}])
 
 
 

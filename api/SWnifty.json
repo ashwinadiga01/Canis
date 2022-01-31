@@ -1,42 +1,52 @@
 [
     {
         "TK": 2885,
-        "SW": 10.77
+        "SW": 10.77,
+        "STOCKNAME": "RELIANCE"
     },
     {
         "TK": 1594,
-        "SW": 9.23
+        "SW": 9.23,
+        "STOCKNAME": "INFY"
     },
     {
-        "TK": 1533,
-        "SW": 8.54
+        "TK": 1333,
+        "SW": 8.54,
+        "STOCKNAME": "HDFCBANK"
     },
     {
         "TK": 4963,
-        "SW": 6.78
+        "SW": 6.78,
+        "STOCKNAME": "ICICIBANK"
     },
     {
         "TK": 1922,
-        "SW": 3.48
+        "SW": 3.48,
+        "STOCKNAME": "KOTAKBANK"
     },
     {
         "TK": 1330,
-        "SW": 6.17
+        "SW": 6.17,
+        "STOCKNAME": "HDFC"
     },
     {
         "TK": 11536,
-        "SW": 5.1
+        "SW": 5.1,
+        "STOCKNAME": "TCS"
     },
     {
         "TK": 11483,
-        "SW": 3.02
+        "SW": 3.02,
+        "STOCKNAME": "LT"
     },
     {
         "TK": 1394,
-        "SW": 2.78
+        "SW": 2.78,
+        "STOCKNAME": "HINDUNILVR"
     },
     {
         "TK": 1660,
-        "SW": 2.52
+        "SW": 2.52,
+        "STOCKNAME": "ITC"
     }
 ]

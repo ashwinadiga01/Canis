@@ -1,6 +1,5 @@
 import json
 from indexContribution import nandbprice
-from indexContribution import indexContribution
 
 def updateList():
   sm = 'stockData.json'
