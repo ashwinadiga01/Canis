@@ -29,7 +29,8 @@ def weightageMove(sm,smListObj,swnListObj,swbListObj):
                     scriptW = j.get('SW')
                     scriptM = i.get('NETCNG')
                     weightageMN =  (scriptW * scriptM)/10000
-                    WMN = {"WMN" : weightageMN}
+                    formatweightageMN = float("{:.5f}".format(weightageMN))
+                    WMN = {"WMN" : formatweightageMN}
                     i.update(WMN)
                     # print(i)
             
@@ -38,7 +39,8 @@ def weightageMove(sm,smListObj,swnListObj,swbListObj):
                     scriptW = j.get('SW')
                     scriptM = i.get('NETCNG')
                     weightageMBN =  (scriptW * scriptM)/10000
-                    WMBN = {"WMBN" : weightageMBN}
+                    formatweightageMBN = float("{:.5f}".format(weightageMBN))
+                    WMBN = {"WMBN" : formatweightageMBN}
                     i.update(WMBN)
 
     with open(sm, 'w') as json_file:

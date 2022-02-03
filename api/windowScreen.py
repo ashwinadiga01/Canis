@@ -562,7 +562,7 @@ class Ui_Canis(object):
     def tableUpdate(self):
         print(self.dataList)
         rowPosition = self.niftyStockPrices.rowCount()
-        print(rowPosition)
+        # print(rowPosition)
         self.niftyStockPrices.insertRow(rowPosition)
 
         self.niftyStockPrices.setItem(rowPosition , 0, QtWidgets.QTableWidgetItem("0"))

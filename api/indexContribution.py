@@ -21,7 +21,8 @@ def indexContribution(ic,icListObj,swnpListObj,swbnpListObj,niftyP,bankniftyP):
                 if(i.get('TK') == j.get('TK')):
                     weightagetM = i.get('WMN')
                     indexContribution = weightagetM*niftyP
-                    IC = {"ICN":indexContribution}
+                    formatindexContribution = float("{:.3f}".format(indexContribution))
+                    IC = {"ICN":formatindexContribution}
                     i.update(IC)
 
         if i.get('WMBN') is not None:
@@ -29,7 +30,8 @@ def indexContribution(ic,icListObj,swnpListObj,swbnpListObj,niftyP,bankniftyP):
                 if(i.get('TK') == j.get('TK')):
                     weightagetM = i.get('WMBN')
                     indexContribution = weightagetM*bankniftyP
-                    IC = {"ICB":indexContribution}
+                    formatindexContribution = float("{:.3f}".format(indexContribution))
+                    IC = {"ICB":formatindexContribution}
                     i.update(IC)
 
     # print("aaaaaaaaaaa")

@@ -7,7 +7,7 @@ filename = 'stockData.json'
 listObj = []
 
 with open(filename) as fp:
-  listObj = json.load(fp)
+    listObj = json.load(fp)
 
 class stockIndices:
     def niftyAndBankNifty(nftAndBnkNftDict):
