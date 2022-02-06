@@ -48,5 +48,55 @@
         "TK": 1660,
         "SW": 2.52,
         "STOCKNAME": "ITC"
+    },
+    {
+        "TK": 317,
+        "SW": 2.44,
+        "STOCKNAME": "BAJFINANCE"
+    },
+    {
+        "TK": 3045,
+        "SW": 2.33,
+        "STOCKNAME": "SBIN"
+    },
+    {
+        "TK": 5900,
+        "SW": 2.31,
+        "STOCKNAME": "AXISBANK"
+    },
+    {
+        "TK": 10604,
+        "SW": 2.13,
+        "STOCKNAME": "BHARTIARTL"
+    },
+    {
+        "TK": 236,
+        "SW": 2.01,
+        "STOCKNAME": "ASIANPAINT"
+    },
+    {
+        "TK": 7229,
+        "SW": 1.89,
+        "STOCKNAME": "HCLTECH"
+    },
+    {
+        "TK": 13538,
+        "SW": 1.47,
+        "STOCKNAME": "TECHM"
+    },
+    {
+        "TK": 3787,
+        "SW": 1.4,
+        "STOCKNAME": "WIPRO"
+    },
+    {
+        "TK": 3506,
+        "SW": 1.39,
+        "STOCKNAME": "TITAN"
+    },
+    {
+        "TK": 16675,
+        "SW": 1.31,
+        "STOCKNAME": "BAJAJFINSV"
     }
 ]

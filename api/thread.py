@@ -1,9 +1,7 @@
 import json
 import sys
-import trace
 import threading
-from PyQt5 import QtCore, QtGui, QtWidgets
-import time
+from PyQt5 import QtCore, QtGui
 from stockIndices import getData
 
 class thread_with_trace(threading.Thread):
@@ -52,58 +50,61 @@ class thread_with_trace(threading.Thread):
 
 def mainPrice(dataList,niftyPrice,bankniftyPrice):
     _translate = QtCore.QCoreApplication.translate
-
     for j in dataList:
-        # print(j)
         if j['TK'] == 26000:
+            temp = float(niftyPrice.text())
             niftyPrice.setText(_translate("Canis", str(j['PRICE'])))
+            if temp >= j['PRICE']:
+                niftyPrice.setStyleSheet("color: #EF6B6B;")
+            else:
+                niftyPrice.setStyleSheet("color: rgb(107, 239, 129);")
 
         if j['TK'] == 26009:
+            temp = float(bankniftyPrice.text())
             bankniftyPrice.setText(_translate("Canis", str(j['PRICE'])))
-
+            if temp >= j['PRICE']:
+                bankniftyPrice.setStyleSheet("color: #EF6B6B;")
+            else:
+                bankniftyPrice.setStyleSheet("color: rgb(107, 239, 129);")
 
 def tableUpdate(niftyTable,bankniftyTable,dataList):
-    # print(self.dataList)
     _translate = QtCore.QCoreApplication.translate
     rowPositionNifty = niftyTable.rowCount()
     rowPositionBNKnifty = bankniftyTable.rowCount()
-    # print(rowPositionNifty,niftyTable.item(1,0).text())
 
     for i in range(rowPositionNifty):
         for j in dataList:
-            # print(j)
             if j['TK'] == int(niftyTable.item(i,0).text()):
                 item = niftyTable.item(i, 2)
-                item.setText(_translate("Canis", str(j['NETCNG'])))
+                item.setData(QtCore.Qt.DisplayRole,float(j['NETCNG']))
                 item.setForeground(colorchange(j['NETCNG']))
 
                 item = niftyTable.item(i, 3)
-                item.setText(_translate("Canis", str(j['WMN'])))
+                item.setData(QtCore.Qt.DisplayRole,float(j['WMN']))
                 item.setForeground(colorchange(j['WMN']))
 
                 item = niftyTable.item(i, 4)
-                item.setText(_translate("Canis", str(j['ICN'])))
+                item.setData(QtCore.Qt.DisplayRole,float(j['ICN']))
                 item.setForeground(colorchange(j['ICN']))
 
                 niftyTable.viewport().update()
+                niftyTable.sortItems(4, QtCore.Qt.AscendingOrder)
 
     for i in range(rowPositionBNKnifty):
         for j in dataList:
-            # print(j)
             if j['TK'] == int(bankniftyTable.item(i,0).text()) and j["WMBN"] is not None:
                 item = bankniftyTable.item(i, 2)
-                item.setText(_translate("Canis", str(j['NETCNG'])))
+                item.setData(QtCore.Qt.DisplayRole,float(j['NETCNG']))
                 item.setForeground(colorchange(j['NETCNG']))
-
                 item = bankniftyTable.item(i, 3)
-                item.setText(_translate("Canis", str(j['WMBN'])))
+                item.setData(QtCore.Qt.DisplayRole,float(j['WMBN']))
                 item.setForeground(colorchange(j['WMBN']))
-
                 item = bankniftyTable.item(i, 4)
-                item.setText(_translate("Canis", str(j['ICB'])))
+                item.setData(QtCore.Qt.DisplayRole,float(j['ICB']))
                 item.setForeground(colorchange(j['ICB']))
-
                 bankniftyTable.viewport().update()
+                bankniftyTable.sortItems(4, QtCore.Qt.AscendingOrder)
+                
 
 def colorchange(value):
     if value < 0:
@@ -114,13 +115,3 @@ def colorchange(value):
 
     else:
         return QtGui.QBrush(QtGui.QColor(107, 239, 129))
-
-
-
-# t1 = thread_with_trace(target = func)
-# t1.start()
-# time.sleep(2)
-# t1.kill()
-# t1.join()
-# if not t1.isAlive():
-#     print('thread killed')

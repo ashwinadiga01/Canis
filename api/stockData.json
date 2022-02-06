@@ -1,26 +1,26 @@
 [
     {
         "TK": 26000,
-        "PRICE": 17557.85,
+        "PRICE": 998.2,
         "STOCKNAME": "NIFTY"
     },
     {
         "TK": 26009,
-        "PRICE": 38854.95,
+        "PRICE": 989.0,
         "STOCKNAME": "BANKNIFTY"
     },
     {
         "TK": 11483,
         "NETCNG": 1.0007,
         "WMN": 0.0003,
-        "ICN": 5.267,
+        "ICN": 0.299,
         "STOCKNAME": "LT"
     },
     {
         "TK": 1594,
         "NETCNG": 0.4803,
         "WMN": 0.00044,
-        "ICN": 7.725,
+        "ICN": 0.439,
         "STOCKNAME": "INFY"
     },
     {
@@ -28,8 +28,8 @@
         "NETCNG": -0.8695,
         "WMN": -0.0003,
         "WMBN": -0.00101,
-        "ICN": -5.267,
-        "ICB": -39.243,
+        "ICN": -0.299,
+        "ICB": -0.999,
         "STOCKNAME": "KOTAKBANK"
     },
     {
@@ -37,99 +37,119 @@
         "NETCNG": -0.6366,
         "WMN": -0.00043,
         "WMBN": -0.00144,
-        "ICN": -7.55,
-        "ICB": -55.951
+        "ICN": -0.429,
+        "ICB": -1.424,
+        "STOCKNAME": "ICICIBANK"
     },
     {
         "TK": 2885,
         "NETCNG": -0.5844,
         "WMN": -0.00063,
-        "ICN": -11.061
+        "ICN": -0.629,
+        "STOCKNAME": "RELIANCE"
     },
     {
         "TK": 1333,
         "NETCNG": 0.6731,
         "WMN": 0.00057,
         "WMBN": 0.00187,
-        "ICN": 10.008,
-        "ICB": 72.659
+        "ICN": 0.569,
+        "ICB": 1.849,
+        "STOCKNAME": "HDFCBANK"
     },
     {
         "TK": 1330,
         "NETCNG": -0.809,
         "WMN": -0.0005,
-        "ICN": -8.779
+        "ICN": -0.499,
+        "STOCKNAME": "HDFC"
     },
     {
         "TK": 1394,
         "NETCNG": 0.396,
         "WMN": 0.00011,
-        "ICN": 1.931
+        "ICN": 0.11,
+        "STOCKNAME": "HINDUNILVR"
     },
     {
         "TK": 1660,
         "NETCNG": 0.3839,
         "WMN": 0.0001,
-        "ICN": 1.756
+        "ICN": 0.1,
+        "STOCKNAME": "ITC"
     },
     {
         "TK": 11536,
         "NETCNG": -0.2262,
         "WMN": -0.00012,
-        "ICN": -2.107
+        "ICN": -0.12,
+        "STOCKNAME": "TCS"
     },
     {
         "TK": 10666,
         "NETCNG": -1.8779,
         "WMBN": -0.00021,
-        "ICB": -8.16
+        "ICB": -0.208,
+        "STOCKNAME": "PNB"
     },
     {
         "TK": 21238,
         "NETCNG": -1.481,
         "WMBN": -0.00035,
-        "ICB": -13.599
+        "ICB": -0.346,
+        "STOCKNAME": "AUBANK"
     },
     {
         "TK": 5900,
         "NETCNG": -0.0625,
         "WMBN": -7e-05,
-        "ICB": -2.72
+        "ICB": -0.069,
+        "STOCKNAME": "AXISBANK",
+        "WMN": -1e-05,
+        "ICN": -0.01
     },
     {
         "TK": 3045,
         "NETCNG": -1.5553,
         "WMBN": -0.00178,
-        "ICB": -69.162
+        "ICB": -1.76,
+        "STOCKNAME": "SBIN",
+        "WMN": -0.00036,
+        "ICN": -0.359
     },
     {
         "TK": 1023,
         "NETCNG": -1.5842,
         "WMBN": -0.00027,
-        "ICB": -10.491
+        "ICB": -0.267,
+        "STOCKNAME": "FEDERALBNK"
     },
     {
         "TK": 5258,
         "NETCNG": -0.1617,
         "WMBN": -0.0001,
-        "ICB": -3.885
+        "ICB": -0.099,
+        "STOCKNAME": "INDUSINDBK"
     },
     {
         "TK": 2263,
         "NETCNG": -0.9098,
         "WMBN": -0.00016,
-        "ICB": -6.217
+        "ICB": -0.158,
+        "STOCKNAME": "BANDHANBNK"
     },
     {
         "TK": 18391,
         "NETCNG": -2.084,
         "WMBN": -0.00014,
-        "ICB": -5.44
+        "ICB": -0.138,
+        "STOCKNAME": "RBLBANK"
     },
     {
         "TK": 11184,
         "NETCNG": -0.7231,
         "WMBN": -0.00011,
-        "ICB": -4.274
+        "ICB": -0.109,
+        "STOCKNAME": "IDFCFIRSTB"
     }
 ]

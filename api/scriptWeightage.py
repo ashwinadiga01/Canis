@@ -1,6 +1,4 @@
 import json
-from os import path
-from tokenize import Double
 
 filename = 'SWnifty.json'
 listObj = []

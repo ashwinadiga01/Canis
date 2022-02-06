@@ -32,7 +32,6 @@ def weightageMove(sm,smListObj,swnListObj,swbListObj):
                     formatweightageMN = float("{:.5f}".format(weightageMN))
                     WMN = {"WMN" : formatweightageMN}
                     i.update(WMN)
-                    # print(i)
             
             for j in swbListObj:
                 if i.get('TK') == j.get('TK'):
