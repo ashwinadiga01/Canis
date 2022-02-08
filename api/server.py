@@ -7,19 +7,19 @@ def getRandomNum():
     return str(random.uniform(980, 1000))
 
 def getRandomPercent():
-    return str(random.uniform(-5, -5))
+    return str(random.uniform(0, 5))
 
 def getData():
     data = [
         {
             "e": "nse_cm",
-            "ltp": getRandomNum(),
-            "ltq": getRandomNum(),
-            "ltt": "NA",
-            "name": "sf",
             "tk": "1333",
             'cng': getRandomPercent(),
             'nc': getRandomPercent(),
+            "ltp": getRandomNum(),
+            "ltq": getRandomNum(),
+            "ltt": "NA",
+            "name": "sf"
         },
         {
             "e": "nse_cm",

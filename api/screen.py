@@ -1,3 +1,4 @@
+from concurrent.futures import thread
 import json
 from operator import concat
 import os
@@ -69,7 +70,6 @@ class Ui_Canis(object):
         FEED_TOKEN = obj.getfeedToken() 
 
         self.niftyTokenTemp = niftyTokenTemp
-        print(niftyTokenTemp)
         self.bankniftyTokenTemp = bankniftyTokenTemp
         # self.token="nse_cm|26000&nse_cm|26009&nse_cm|1130&nse_cm|11483&nse_cm|4963&nse_cm|1922&nse_cm|2885&nse_cm|1594&nse_cm|1333&nse_cm|1330&nse_cm|11536&nse_cm|1394&nse_cm|1660"
         self.token2 = self.niftyTokenTemp + self.bankniftyTokenTemp
@@ -836,7 +836,7 @@ class Ui_Canis(object):
         item = self.niftyStockPrices.item(8, 4)
         item.setData(QtCore.Qt.DisplayRole,0)
         item = self.niftyStockPrices.item(9, 0)
-        item.setText(_translate("Form", "1992"))
+        item.setText(_translate("Form", "1922"))
         item = self.niftyStockPrices.item(9, 1)
         item.setText(_translate("Form", "KOTAKBANK"))
         item = self.niftyStockPrices.item(9, 2)
@@ -1137,12 +1137,24 @@ class Ui_Canis(object):
         self.t1.start()
 
     def onChange(self,i):
-        if i == 0:
-            self.token = self.niftyTokenTemp
+        # if i == 0 and self.startMarket.isChecked() is False and self.stopMarket.isChecked() is False:
+        #     filename = 'stockData.json'
+        #     listObj = []
+        #     with open(filename) as fp:
+        #         listObj = json.load(fp)
 
-        if i == 1 and self.t1 is not None:
+        #     self.threadMsg(listObj) 
+        #     # print("lmaoaa",listObj)
+
+        if i == 0 and self.t1 is not None and self.t2 is not None and self.startMarket.isChecked() is True:
+            self.t1.kill()
+            self.token = self.niftyTokenTemp
+            self.webSocketLmao()
+
+        if i == 1 and self.t1 is not None and self.t2 is not None and self.startMarket.isChecked() is True:
+            self.t1.kill()
             self.token = self.bankniftyTokenTemp
-            
+            self.webSocketLmao()
 
     def webSocketCall(self):
         if self.startMarket.isChecked():
@@ -1188,12 +1200,14 @@ class Ui_Canis(object):
     
     # def connect(self):
     #     asyncio.run(self.hello())
+
     "------------------------------------------------Dummy websocket above-----------------------------------------------------------"
+
     """
     TODO:
     App logo
     # Kill thread after app is closed
-    Change thread as tab is changed
+    # Change thread as tab is changed
     Add market timing   
     Login notepad shit
     """

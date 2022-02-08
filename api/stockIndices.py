@@ -2,10 +2,20 @@ import json
 from weightageMove import updateList
 
 filename = 'stockData.json'
-listObj = []
+bk = 'bkup.json'
+listObj = []                      
 
+# try:
 with open(filename) as fp:
     listObj = json.load(fp)
+    print("alnskbdlkas dmfhb")
+
+# except:
+#     with open(bk) as fp:
+#         listObj = json.load(fp)
+#         print("kdijesfhiuhfbgyui")
+
+
 
 class stockIndices:
     def niftyAndBankNifty(nftAndBnkNftDict):
@@ -23,13 +33,13 @@ def updateJSON(tk,price,nc):
     for i in listObj:
         if(tk == 26000 or tk ==26009):
             if(i['TK'] == tk or i['TK'] == tk):
-                formatPrice = float("{:.1f}".format(price))
+                formatPrice = float("{:.3f}".format(price))
                 Price = {"PRICE" : formatPrice}
                 i.update(Price)
 
         else:
             if(i['TK'] == tk or i['TK'] == tk):
-                formatNc = float("{:.1f}".format(nc))
+                formatNc = float("{:.4f}".format(nc))
                 NetCng = {"NETCNG" : formatNc}
                 i.update(NetCng)
 

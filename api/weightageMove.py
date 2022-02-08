@@ -14,6 +14,7 @@ def updateList():
 
   with open(swn) as fp:
     swnListObj = json.load(fp)
+    
 
   with open(swb) as fp:
     swbListObj = json.load(fp)
@@ -32,7 +33,7 @@ def weightageMove(sm,smListObj,swnListObj,swbListObj):
                     formatweightageMN = float("{:.5f}".format(weightageMN))
                     WMN = {"WMN" : formatweightageMN}
                     i.update(WMN)
-            
+		
             for j in swbListObj:
                 if i.get('TK') == j.get('TK'):
                     scriptW = j.get('SW')
@@ -43,6 +44,6 @@ def weightageMove(sm,smListObj,swnListObj,swbListObj):
                     i.update(WMBN)
 
     with open(sm, 'w') as json_file:
-      json.dump(smListObj, json_file, indent=4, separators=(',',': '))
+    	json.dump(smListObj, json_file, indent=4, separators=(',',': '))
 
 
