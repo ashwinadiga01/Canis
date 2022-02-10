@@ -14,4 +14,8 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 .env
+testStuff
 api/__pycache__
+api/personalData.txt
+api/output
+api/ImpFiles

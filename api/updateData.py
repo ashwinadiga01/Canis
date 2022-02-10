@@ -21,20 +21,12 @@ class updateData:
         with open(self.swb) as fp:
             self.swbListObj = json.load(fp)
 
-
-        self.getData()
-
     def getData(self):
         for i in self.shareData:
-            if(i.get('tk') is not None and i.get('c') is not None and i.get('cng') is not None):
-                if(i.get('tk') == '26000' or i.get('tk') == '26009'):
-                    self.niftyAndBankNifty(i)
-
-            else:
-                self.dataUpdate(i)
+            if(i.get('tk') == '26000' or i.get('tk') == '26009'):
+                self.niftyAndBankNifty(i)
 
     def niftyAndBankNifty(self,nftAndBnkNftDict):
-        _translate = QtCore.QCoreApplication.translate
         if(nftAndBnkNftDict.get('tk') == '26000'):
             formatPrice = float("{:.2f}".format(float(nftAndBnkNftDict.get('ltp'))))
             temp = float(self.niftyPrice.text())
@@ -43,7 +35,6 @@ class updateData:
                 self.niftyPrice.setStyleSheet("color: #EF6B6B;")
             else:
                 self.niftyPrice.setStyleSheet("color: rgb(107, 239, 129);")
-
 
         if(nftAndBnkNftDict.get('tk') == '26009'):         
             formatPrice = float("{:.2f}".format(float(nftAndBnkNftDict.get('ltp'))))
@@ -54,60 +45,72 @@ class updateData:
             else:
                 self.bankniftyPrice.setStyleSheet("color: rgb(107, 239, 129);")
 
-    def dataUpdate(self,shareInfo):
-        for i in range(self.rowPositionNifty):
-            if int(shareInfo.get('tk')) == int(self.niftyTable.item(i,0).text()):
-                formatNc = float("{:.4f}".format(float(shareInfo.get('nc'))))
-                netchange = self.niftyTable.item(i, 2)
-                netchange.setData(QtCore.Qt.DisplayRole,formatNc)
-                netchange.setForeground(self.colorchange(formatNc))
 
-                for j in self.swnListObj:
-                    if int(shareInfo.get('tk')) == j.get('TK'):
-                        scriptW = j.get('SW')
-                        scriptM = formatNc
-                        weightageMN =  (scriptW * scriptM)/10000
-                        formatweightageMN = float("{:.5f}".format(weightageMN))
-                        weightageMove = self.niftyTable.item(i, 3)
-                        weightageMove.setData(QtCore.Qt.DisplayRole,formatweightageMN)
-                        weightageMove.setForeground(self.colorchange(formatweightageMN))
+    def dataUpdate(self,message):
+        for shareInfo in message:
+            for i in range(self.rowPositionNifty):
+                if int(shareInfo.get('tk')) == int(self.niftyTable.item(i,0).text()):
+                    formatNc = float("{:.4f}".format(float(shareInfo.get('nc'))))
+                    netchange = self.niftyTable.item(i, 2)
+                    netchange.setData(QtCore.Qt.DisplayRole,str(formatNc))
+                    netchange.setForeground(self.colorchange(formatNc))
 
-                        indexContribution = formatweightageMN*float(self.niftyPrice.text())
-                        formatindexContribution = float("{:.3f}".format(indexContribution))
-                        indexContri = self.niftyTable.item(i, 4)
-                        indexContri.setData(QtCore.Qt.DisplayRole,formatindexContribution)
-                        indexContri.setForeground(self.colorchange(formatindexContribution))
+                    if formatNc is not None:
+                        for j in self.swnListObj:
+                            if int(shareInfo.get('tk')) == j.get('TK'):
+                                scriptW = j.get('SW')
+                                scriptM = formatNc
+                                weightageMN =  (scriptW * scriptM)/10000
+                                formatweightageMN = float("{:.5f}".format(weightageMN))
+                                weightageMove = self.niftyTable.item(i, 3)
+                                weightageMove.setData(QtCore.Qt.DisplayRole,formatweightageMN)
+                                weightageMove.setForeground(self.colorchange(formatweightageMN))
 
+                                if formatweightageMN is not None:
+                                    indexContribution = formatweightageMN*float(self.niftyPrice.text())
+                                    formatindexContribution = float("{:.3f}".format(indexContribution))
+                                    indexContri = self.niftyTable.item(i, 4)
+                                    indexContri.setData(QtCore.Qt.DisplayRole,formatindexContribution)
+                                    indexContri.setForeground(self.colorchange(formatindexContribution))
+                                    self.niftyTable.viewport().update()
+                                self.niftyTable.viewport().update()
+                        self.niftyTable.viewport().update()
                     self.niftyTable.viewport().update()
-                self.niftyTable.sortItems(4, QtCore.Qt.AscendingOrder)
+                self.niftyTable.viewport().update()
+            self.niftyTable.viewport().update()    
+            self.niftyTable.sortItems(4, QtCore.Qt.AscendingOrder)
 
-        for i in range(self.rowPositionBNKnifty):
-            if int(shareInfo.get('tk')) == int(self.bankniftyTable.item(i,0).text()):
-                formatNc = float("{:.4f}".format(float(shareInfo.get('nc'))))
-                netchange = self.bankniftyTable.item(i, 2)
-                netchange.setData(QtCore.Qt.DisplayRole,formatNc)
-                netchange.setForeground(self.colorchange(formatNc))
-
-                for j in self.swbListObj:
-                    if int(shareInfo.get('tk')) == j.get('TK'):
-                        scriptW = j.get('SW')
-                        scriptM = formatNc
-                        weightageMBN =  (scriptW * scriptM)/10000
-                        formatweightageMBN = float("{:.5f}".format(weightageMBN))
-                        weightageMove = self.bankniftyTable.item(i, 3)
-                        weightageMove.setData(QtCore.Qt.DisplayRole,formatweightageMBN)
-                        weightageMove.setForeground(self.colorchange(formatweightageMBN))
-
-                        indexContribution = formatweightageMBN*float(self.bankniftyPrice.text())
-                        formatindexContribution = float("{:.3f}".format(indexContribution))
-                        indexContri = self.bankniftyTable.item(i, 4)
-                        indexContri.setData(QtCore.Qt.DisplayRole,formatindexContribution)
-                        indexContri.setForeground(self.colorchange(formatindexContribution))
-
+    def dataUpdate2(self,message):
+        for shareInfo in message:
+            for i in range(self.rowPositionBNKnifty):
+                if int(shareInfo.get('tk')) == int(self.bankniftyTable.item(i,0).text()):
+                    formatNc = float("{:.4f}".format(float(shareInfo.get('nc'))))
+                    netchange = self.bankniftyTable.item(i, 2)
+                    netchange.setData(QtCore.Qt.DisplayRole,formatNc)
+                    netchange.setForeground(self.colorchange(formatNc))
                     self.bankniftyTable.viewport().update()
-                self.bankniftyTable.sortItems(4, QtCore.Qt.AscendingOrder)
-        
-        # self.weightageMove()
+
+                    if formatNc is not None:
+                        for j in self.swbListObj:
+                            if int(shareInfo.get('tk')) == j.get('TK'):
+                                scriptW = j.get('SW')
+                                scriptM = formatNc
+                                weightageMBN =  (scriptW * scriptM)/10000
+                                formatweightageMBN = float("{:.5f}".format(weightageMBN))
+                                weightageMove = self.bankniftyTable.item(i, 3)
+                                weightageMove.setData(QtCore.Qt.DisplayRole,formatweightageMBN)
+                                weightageMove.setForeground(self.colorchange(formatweightageMBN))
+                                self.bankniftyTable.viewport().update()
+                                
+                                if formatweightageMBN is not None:
+                                    indexContribution = formatweightageMBN*float(self.bankniftyPrice.text())
+                                    formatindexContribution = float("{:.3f}".format(indexContribution))
+                                    indexContri = self.bankniftyTable.item(i, 4)
+                                    indexContri.setData(QtCore.Qt.DisplayRole,formatindexContribution)
+                                    indexContri.setForeground(self.colorchange(formatindexContribution))
+
+                            self.bankniftyTable.viewport().update()
+                        self.bankniftyTable.sortItems(4, QtCore.Qt.AscendingOrder)
 
     def weightageMove(self):
         for i in range(self.rowPositionNifty):

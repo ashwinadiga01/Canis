@@ -2,7 +2,6 @@ import asyncio
 import websockets
 import time
 
-
 async def hello():
     uri = "ws://localhost:8765"
     while True:
