@@ -10,7 +10,7 @@ from datetime import datetime
 
 now = datetime.now()
 today3pm = now.replace(hour=15, minute=30, second=0, microsecond=0)
-today9am = now.replace(hour=9, minute=30, second=0, microsecond=0)
+today9am = now.replace(hour=9, minute=00, second=0, microsecond=0)
 
 try:
     niftyToken = 'SWnifty.json'
